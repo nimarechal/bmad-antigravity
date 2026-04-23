@@ -14,7 +14,7 @@ def parse_agent_dependencies(agent_path):
     """
     dependencies = []
     try:
-        with open(agent_path, 'r') as f:
+        with open(agent_path, 'r', encoding='utf-8') as f:
             content = f.read()
             
         # simple parsing to find the yaml block
@@ -98,7 +98,7 @@ You have the following BMad tasks available to you (defined in `{BMAD_CORE}/task
 If the user wants to perform a generic action not in the tasks, use your Agent Persona to answer.
 """
     output_path = os.path.join(WORKFLOW_DIR, workflow_filename)
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding='utf-8') as f:
         f.write(content)
     print(f"Created {output_path}")
 
@@ -133,7 +133,7 @@ description: Execute BMad Task: {title}
    - Do NOT proceed until you receive the user's response via the tool output in the next turn.
 """
     output_path = os.path.join(WORKFLOW_DIR, f"bmad-task-{name}.md")
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding='utf-8') as f:
         f.write(content)
     print(f"Created {output_path}")
 
